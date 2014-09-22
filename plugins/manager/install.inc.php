@@ -41,9 +41,10 @@ $sql->setQuery('CREATE TABLE IF NOT EXISTS `' . $REX['TABLE_PREFIX'] . 'xform_fi
     `type_name` varchar(100) NOT NULL,
     `list_hidden` tinyint(1) NOT NULL,
     `search` tinyint(1) NOT NULL,
-    `name` text NOT NULL,
+    `name` varchar(100) NOT NULL,
     `label` text NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    UNIQUE(`table_name`, `type_id`, `name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;');
 
 $sql->setQuery('ALTER TABLE `' . $REX['TABLE_PREFIX'] . 'xform_field` CHANGE `prio` `prio` INT NOT NULL');
